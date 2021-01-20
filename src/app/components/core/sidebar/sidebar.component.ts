@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  activatedMenu: string = 'home'
 
-  ngOnInit(): void {
+  @Input() sidebarMini: boolean
+
+  ngOnInit(): void {}
+
+  public activeMenu(name:string){
+    this.activatedMenu = name
   }
 
 }

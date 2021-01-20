@@ -1,5 +1,5 @@
-<app-nabvar></app-nabvar>
+<app-nabvar (eventChangeSidebar)="onChangeSidebar()" [sidebarMini]="sidebarMini"></app-nabvar>
 
-<app-sidebar></app-sidebar>
+<app-sidebar [sidebarMini]="sidebarMini"></app-sidebar>
 
-<app-content></app-content>
+<app-content [sidebarMini]="sidebarMini"></app-content>

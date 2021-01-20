@@ -4,13 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 //PAGES
 import { HomeComponent } from './home/home.component';
 import { UsersListComponent } from './users-list/users-list.component';
-import { PermisionsComponent } from './permisions/permisions.component';
+import { PermissionsComponent } from './permissions/permissions.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'userList', component: UsersListComponent },
-  { path: 'permisions', component: PermisionsComponent },
+  { path: 'permissions', component: PermissionsComponent },
 ];
 
 @NgModule({

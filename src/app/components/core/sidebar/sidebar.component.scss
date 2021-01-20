@@ -1,8 +1,63 @@
-.main-sidebar{
-    position: absolute;
-    top: 60px;
-    height: calc(100% - 60px);
-    background-color: #f0f0f0;
-    padding: 10px;
-    width: 250px;
+@import "../../../../scss/variables";
+
+.main-sidebar {
+  position: absolute;
+  top: 60px;
+  height: calc(100% - 60px);
+  background-color: #f0f0f0;
+  padding: 10px;
+  width: 250px;
+  z-index: 1;
+  transition: all 0.2s ease-in-out;
+
+  &.sidebar-mini {
+    width: 70px;
+  }
+
+  &-menu {
+    margin: 0px;
+    width: 100%;
+    transition: 0.3s all ease-in-out;
+
+    &-item {
+      color: #495057;
+      font-family: "Open Sans", sans-serif;
+      height: 40px;
+      overflow: hidden;
+      cursor: pointer;
+      line-height: 40px;
+      margin-bottom: 10px;
+
+      &-block {
+        width: 250px;
+        height: 40px;
+
+        &-icon {
+          display: block;
+          font-size: 20px;
+          width: 50px;
+          text-align: center;
+          float: left;
+          line-height: 40px;
+        }
+
+        &-text {
+          font-size: 14px;
+          white-space: nowrap;
+        }
+      }
+
+      &:hover:not(.active) {
+        opacity: 0.5;
+      }
+
+      &.active {
+        background-color: $primary;
+        color: white;
+        .main-sidebar-menu-item-block-icon{
+          background: $primary;
+        }
+      }
+    }
+  }
 }
