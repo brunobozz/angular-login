@@ -3,19 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { NabvarComponent } from './components/core/nabvar/nabvar.component';
-import { SidebarComponent } from './components/core/sidebar/sidebar.component';
-import { ContentComponent } from './components/core/content/content.component';
+// MODULES
+import { CoreModule } from './components/core/core.module';
+
+import { UsersListComponent } from './pages/users-list/users-list.component';
+import { ContentHeaderComponent } from './components/shared/content-header/content-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NabvarComponent,
-    SidebarComponent,
-    ContentComponent
+    UsersListComponent,
+    ContentHeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
