@@ -8,4 +8,9 @@
     overflow-y: auto;
     background: white;
     padding: 40px;
+    transition: all 0.2s ease-in-out;
+
+    &.sidebar-mini{
+        left: 70px;
+    }
 }

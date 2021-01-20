@@ -1,7 +1,18 @@
 <div class="main-navbar">
   <div class="main-navbar-header">
+    <div class="main-navbar-header-toggle" (click)="eventChangeSidebar.emit()">
+      <div
+        class="main-navbar-header-toggle-icon"
+        [ngClass]="sidebarMini && 'sidebar-mini'"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
     <span class="main-navbar-header-title">
-      <i class="fa fa-skyatlas"></i> Angular Login
+      <!-- <i class="fa fa-skyatlas"></i> -->
+      Angular Login
     </span>
   </div>
   <div class="main-navbar-section">

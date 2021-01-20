@@ -1,21 +1,66 @@
 @import "../../../../scss/variables";
 
-.main-navbar{
-    background-color: $primary;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
+.main-navbar {
+  background-color: $primary;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
 
-    &-header{
-        padding-left: 20px;
-        
-        &-title{
-            font-size: 24px;
-            i{
-                padding-right: 10px;
-            }
+  &-header {
+    display: flex;
+    align-items: center;
+
+    &-toggle {
+      cursor: pointer;
+      font-size: 20px;
+      height: 60px;
+      width: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-icon {
+        height: 20px;
+        width: 22px;
+        transition: 0.2s all ease-in-out;
+
+        span {
+          display: block;
+          height: 4px;
+          background-color: white;
+          border-radius: 2px;
         }
+        span:nth-child(2) {
+          margin: 4px 0;
+        }
+
+        &.sidebar-mini {
+          width: 10px;
+        }
+      }
     }
+
+    &-title {
+      font-size: 24px;
+      i {
+        padding-right: 10px;
+      }
+    }
+  }
+
+  &-section{
+      padding-right: 20px;
+      &-actions{
+          display: flex;
+          align-items: center;
+          &-user{
+            margin-right: 10px;
+          }
+          & i{
+            font-size: 24px;
+          }
+      }
+  }
 }
