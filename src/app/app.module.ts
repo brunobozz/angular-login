@@ -4,20 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // MODULES
-import { CoreModule } from './components/core/core.module';
-
-import { UsersListComponent } from './pages/users-list/users-list.component';
-import { ContentHeaderComponent } from './components/shared/content-header/content-header.component';
+import { ComponentsModule } from './components/components.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UsersListComponent,
-    ContentHeaderComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    CoreModule
+    ComponentsModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
