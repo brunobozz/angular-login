@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 // PAGES
 import { HomeComponent } from './home/home.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { UsersListComponent } from './users-list/users-list.component';
     UsersListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentsModule
   ],
   exports: [
     HomeComponent,
