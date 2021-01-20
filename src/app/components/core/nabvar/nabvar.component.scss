@@ -1,0 +1,17 @@
+.main-navbar{
+    background-color: crimson;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+
+    &-header{
+        padding-left: 20px;
+        
+        &-title{
+            font-size: 24px;
+            font-weight: bold;
+        }
+    }
+}
