@@ -1,0 +1,31 @@
+@import "../../../../scss/variables";
+
+.login {
+  position: absolute;
+  z-index: 10;
+  background-color: $primary;
+//   background-image: url(../../../../assets/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  &-area {
+    height: 100%;
+    width: 400px;
+    padding: 0 40px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.5);
+    right: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-form{
+        width: 100%;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<div *ngIf="!login" class="login">
+  <div class="login-area">
+    <form
+      class="login-area-form"
+      [formGroup]="form"
+      (ngSubmit)="verificaLogin()"
+    >
+      <h1>LOGIN</h1>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          formControlName="email"
+          requiredminlength="5"
+        />
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input
+          type="password"
+          id="senha"
+          class="form-control"
+          formControlName="senha"
+          requiredminlength="8"
+        />
+      </div>
+      <div class="d-grid">
+        <button
+          class="btn btn-block btn-primary mt-2"
+          type="submit"
+          [disabled]="!form.valid"
+        >
+          Entrar
+        </button>
+
+        <p *ngIf="mensagem != ''">
+          {{ mensagem }}
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
