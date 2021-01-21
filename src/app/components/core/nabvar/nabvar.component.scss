@@ -31,6 +31,7 @@
           height: 4px;
           background-color: white;
           border-radius: 2px;
+          transition: all 0.4s ease-in-out;
         }
         span:nth-child(2) {
           margin: 4px 0;
@@ -38,6 +39,13 @@
 
         &.sidebar-mini {
           width: 10px;
+        }
+      }
+      &:hover {
+        .main-navbar-header-toggle-icon {
+          & span {
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+          }
         }
       }
     }
@@ -50,17 +58,17 @@
     }
   }
 
-  &-section{
-      padding-right: 20px;
-      &-actions{
-          display: flex;
-          align-items: center;
-          &-user{
-            margin-right: 10px;
-          }
-          & i{
-            font-size: 24px;
-          }
+  &-section {
+    padding-right: 20px;
+    &-actions {
+      display: flex;
+      align-items: center;
+      &-user {
+        margin-right: 10px;
       }
+      & i {
+        font-size: 24px;
+      }
+    }
   }
 }
