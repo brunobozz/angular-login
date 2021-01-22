@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/models/User';
+
+import { CrudService } from '../../services/crud.service';
 
 @Component({
   selector: 'app-users-list',
@@ -6,53 +10,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./users-list.component.scss'],
 })
 export class UsersListComponent implements OnInit {
-  public users: {
-    id: number;
-    name: string;
-    email: string;
-    password: string;
-  }[] = [
-    {
-      id: 0,
-      name: 'Luca Bacci Tourn',
-      email: 'luktb@gmail.com',
-      password: '45734573',
-    },
-    {
-      id: 1,
-      name: 'Bruno Bozzetti',
-      email: 'brunobozz@gmail.com',
-      password: '94ndfjdj54',
-    },
-    {
-      id: 2,
-      name: 'Theo Bozzetti',
-      email: 'theoturn@gmail.com',
-      password: 'dfhj4763t',
-    },
-    {
-      id: 3,
-      name: 'Joanna Fraga',
-      email: 'joannasfraga@gmail.com',
-      password: 'nodssu5634',
-    },
-    {
-      id: 4,
-      name: 'Ronaldinho Gaúcho',
-      email: 'r10@ronaldinho.com.br',
-      password: 'asahs4uhd',
-    },
-  ];
+  users$: Observable<User[]>;
 
-  public userName: string = '';
+  constructor(private crudService: CrudService) {}
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.users$ = this.crudService.fetchAll();
+  }
 
   public userExclude(numero: number) {
-    let userExclude = this.users[numero];
-    console.log(userExclude.name);
-    alert('Deseja excluir ' + userExclude.name + '?');
+    alert('Deseja excluir ?');
   }
 }
