@@ -4,16 +4,20 @@
   <thead>
     <tr>
       <th scope="col">Nome</th>
-      <th scope="col">Usuário</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Perfil</th>
       <th scope="col">Senha</th>
       <th scope="col" class="text-end">Ações</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{ user.name }}</td>
+    <tr *ngFor="let user of users$ | async">
+      <td>{{ user.nome }}</td>
       <td>{{ user.email }}</td>
-      <td>{{ user.password }}</td>
+      <td>{{ user.cpf }}</td>
+      <td>{{ user.perfil }}</td>
+      <td>{{ user.senha }}</td>
       <td class="text-end">
         <button class="btn btn-primary btn-sm m-2 mt-0 mb-0">
           <i class="fa fa-key"></i>
@@ -49,7 +53,7 @@
         ></button>
       </div>
       <div class="modal-body">
-        <p>Tem certeza que deseja excluir o usuário {{ userName }}?</p>
+        <!-- <p>Tem certeza que deseja excluir o usuário {{ userName }}?</p> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">
