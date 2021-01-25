@@ -1,0 +1,31 @@
+<div class="main-sidebar" [ngClass]="sidebarMini && 'sidebar-mini'">
+  <div class="main-sidebar-menu">
+    <div class="main-sidebar-menu-item" [ngClass]="{ active: activatedMenu === 'home' }" routerLink="/home"
+      (click)="activeMenu('home')">
+      <div class="main-sidebar-menu-item-block">
+        <div class="main-sidebar-menu-item-block-icon">
+          <i class="fa fa-home"></i>
+        </div>
+        <span class="main-sidebar-menu-item-block-text">Home</span>
+      </div>
+    </div>
+    <div class="main-sidebar-menu-item" [ngClass]="{ active: activatedMenu === 'userList' }" routerLink="/userList"
+      (click)="activeMenu('userList')">
+      <div class="main-sidebar-menu-item-block">
+        <div class="main-sidebar-menu-item-block-icon">
+          <i class="fa fa-users"></i>
+        </div>
+        <span class="main-sidebar-menu-item-block-text">Lista de Usuários</span>
+      </div>
+    </div>
+    <div class="main-sidebar-menu-item" [ngClass]="{ active: activatedMenu === 'configurations' }"
+      routerLink="/configurations" (click)="activeMenu('configurations')">
+      <div class="main-sidebar-menu-item-block">
+        <div class="main-sidebar-menu-item-block-icon">
+          <i class="fa fa-gear"></i>
+        </div>
+        <span class="main-sidebar-menu-item-block-text">Configurações</span>
+      </div>
+    </div>
+  </div>
+</div>

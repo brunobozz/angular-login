@@ -1,0 +1,138 @@
+<app-content-header icone="fa fa-users" title="Lista de Usuários"></app-content-header>
+
+<button class="btn btn-primary float-end mb-4" data-bs-toggle="modal" data-bs-target="#userModal">
+  <i class="fa fa-plus"></i>&nbsp; Novo Usuário
+</button>
+
+<table class="table table-striped align-middle table-hover">
+  <thead>
+    <tr class="bg-primary text-white">
+      <th width="40px" class="text-center">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      </th>
+      <th scope="col">Nome</th>
+      <th scope="col" class="text-center">Sexo</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">CPF</th>
+      <th scope="col" class="text-center">Perfil</th>
+      <th scope="col" class="text-end">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users$ | async">
+      <td class="text-center">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      </td>
+      <td>{{ user.nome }}</td>
+      <td class="text-center">
+        <span class="sexo-circle" [ngClass]="{
+          'sexo-fem': user.sexo === 'feminino',
+          'sexo-mas': user.sexo === 'masculino'
+        }">
+          <i class="fa" [ngClass]="{
+            'fa-mars': user.sexo === 'masculino',
+            'fa-venus': user.sexo === 'feminino'
+          }"></i>
+        </span>
+      </td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.cpf | mask: '000.000.000-00' }}</td>
+      <td class="text-center">
+        <span class="badge bg-secondary" [ngClass]="{
+            'bg-danger': user.perfil === 'admin',
+            'bg-success': user.perfil === 'professor',
+            'bg-info': user.perfil === 'aluno'
+          }">
+          {{ user.perfil }}
+        </span>
+      </td>
+      <td class="text-end">
+        <div class="table-actions">
+          <button class="btn btn-primary btn-sm m-2 mt-0 mb-0" (click)="edit(user.id)" data-bs-toggle="modal"
+            data-bs-target="#userModal">
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button class="btn btn-primary btn-sm ml-1" (click)="delete(user.id, user.nome)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="userModalLabel">
+          <i class="fa fa-plus"></i> Novo Usuário
+        </h5>
+        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col">
+              <div class="mb-2">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="email" class="form-control" ngModel name="nome" placeholder="Nome Completo" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="mb-2">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="text" class="form-control" ngModel name="email" placeholder="nome@example.com" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="mb-2">
+                <label for="sexo" class="form-label">Sexo</label>
+                <select class="form-select" ngModel name="sexo" aria-label="sexo">
+                  <option value="" selected>--</option>
+                  <option value="masculino">Masculino</option>
+                  <option value="feminino">Feminino</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-2">
+                <label for="perfil" class="form-label">Perfil</label>
+                <select class="form-select" ngModel name="perfil" aria-label="perfil">
+                  <option value="" selected>--</option>
+                  <option value="aluno">Aluno</option>
+                  <option value="professor">Professor</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="mb-2">
+                <label for="cpf" class="form-label">CPF</label>
+                <input type="text" class="form-control" ngModel name="cpf" placeholder="999.999.999-99"
+                  mask="000.000.000-00" maxlength="14" />
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-2">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="text" class="form-control" ngModel name="senha" placeholder="xxxxxxxxxxx" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary float-end" type="submit">
+            Cadastrar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

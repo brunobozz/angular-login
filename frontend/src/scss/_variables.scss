@@ -1,0 +1,13 @@
+$primary: rgb(219, 99, 0);
+
+$theme-colors: (
+  "primary": $primary
+);
+
+// Create your own map
+$custom-colors: (
+  "custom-color": rgb(179, 20, 118)
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
